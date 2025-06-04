@@ -36,8 +36,6 @@ public class PetApiPositiveTests {
 
             Assertions.assertEquals(pet, petReceived);
         }
-
-
     }
     @Test
     void createUpdateAndGetTest(){
@@ -60,7 +58,6 @@ public class PetApiPositiveTests {
 
             Assertions.assertEquals(pet, petReceived);
         }
-
     }
     @Test
     void createAndDeleteTest(){
@@ -70,7 +67,5 @@ public class PetApiPositiveTests {
         client.deletePet(id);
         Response response = client.getPetByID(id);
         Assertions.assertEquals(404, response.getStatusCode());
-
     }
-
 }
