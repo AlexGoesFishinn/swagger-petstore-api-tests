@@ -1,4 +1,4 @@
-package com.petstore.pet.positive;
+package com.petstore.pet.positivetests;
 
 import com.petstore.api.PetApiClient;
 import com.petstore.model.Category;

@@ -1,4 +1,4 @@
-package com.petstore.pet.negative;
+package com.petstore.pet.negativetests;
 
 import com.petstore.TestUtils;
 import com.petstore.api.PetApiClient;
