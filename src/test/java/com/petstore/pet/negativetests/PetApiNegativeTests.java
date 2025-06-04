@@ -28,7 +28,7 @@ class PetApiNegativeTests {
 
     @Test
     void updateByInvalidIdTest() {
-        Pet pet = TestUtils.generateRandomPet();
+        Pet pet = generateRandomPet();
         pet.setId(-1000L);
         Response response = client.updatePet(pet);
         assertEquals(400, response.getStatusCode());
@@ -36,9 +36,9 @@ class PetApiNegativeTests {
 
     @Test
     void updateDeletedPetTest() {
-        Pet pet = TestUtils.generateRandomPet();
-        long id = pet.getId();
-        client.deletePet(id);
+        Pet pet = generateRandomPet();
+        client.addPet(pet);
+        client.deletePet(pet.getId());
         Response response = client.updatePet(pet);
         assertEquals(404, response.getStatusCode());
     }

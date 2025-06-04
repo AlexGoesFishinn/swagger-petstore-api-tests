@@ -9,14 +9,14 @@ import static io.restassured.RestAssured.given;
 
 public class PetApiClient extends ApiClient {
     private static final String PET_ENDPOINT = "/pet";
-    private static final String PET_ENDPOINT_ID = "/pet/{id}";
-    private static final String PET_ENDPOINT_STATUS = "/pet/findByStatus";
+    private static final String PET_ID_ENDPOINT = "/pet/{id}";
+    private static final String PET_STATUS_ENDPOINT = "/pet/findByStatus";
 
 
     public Response getPetByID(long id) {
         return given()
                 .when()
-                .get(PET_ENDPOINT_ID, id)
+                .get(PET_ID_ENDPOINT, id)
                 .then()
                 .extract()
                 .response();
@@ -26,7 +26,7 @@ public class PetApiClient extends ApiClient {
         return given()
                 .when()
                 .queryParam("status", status)
-                .get(PET_ENDPOINT_STATUS)
+                .get(PET_STATUS_ENDPOINT)
                 .then()
                 .extract()
                 .response();
@@ -56,7 +56,7 @@ public class PetApiClient extends ApiClient {
     public Response deletePet(long id) {
         return given()
                 .when()
-                .delete(PET_ENDPOINT_ID, id)
+                .delete(PET_ID_ENDPOINT, id)
                 .then()
                 .extract()
                 .response();

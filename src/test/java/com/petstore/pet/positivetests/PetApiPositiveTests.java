@@ -38,9 +38,19 @@ class PetApiPositiveTests {
 
         if (getResponse.body() != null) {
             Pet petReceived = getResponse.getBody().as(Pet.class);
-            getResponse.then().assertThat().body(matchesJsonSchemaInClasspath("pet_json_schema.json"));
             assertEquals(pet, petReceived);
         }
+    }
+    @Test
+    void getValidJsonSchemaTest(){
+        Pet pet = generateRandomPet();
+        client.addPet(pet);
+        client.getPetByID(pet.getId())
+                .then()
+                .assertThat()
+                .body(matchesJsonSchemaInClasspath("pet_json_schema.json"));
+
+
     }
 
     @Test

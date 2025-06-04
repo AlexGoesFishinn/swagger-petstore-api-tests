@@ -3,14 +3,8 @@
 0src/main/java/com/petstore/api/PetApiClient.java,d\d\dd8514f002313483ed19ee84238af0895a8bd384
 \
 ,src/main/java/com/petstore/model/Status.java,7\a\7af5018a0d7be4732628741ea955820e29ad0ee7
-p
-@src/test/java/com/petstore/pet/positive/PetApiPositiveTests.java,6\1\61573b3f19420eab0cf9ec322f0209c1513c54b8
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-k
-;src/test/java/com/petstore/jsonschemes/pet_json_schema.json,9\b\9ba74b497d2e8b0b73284b98e2a3733685d87ea4
-p
-@src/test/java/com/petstore/pet/negative/PetApiNegativeTests.java,1\6\16b52c0bb8be6f2ab5eb733133073500e46048da
 ]
 -src/main/java/com/petstore/api/ApiClient.java,e\b\ebc32aee7c54fd250af1039788fd86d55643fa7b
 ^
@@ -19,8 +13,6 @@ Y
 )src/main/java/com/petstore/model/Pet.java,c\c\ccf4715b9b99808b6882cef9d9dc5daaf2eaeb69
 Y
 )src/main/java/com/petstore/model/Tag.java,5\1\5133ab4d4bdc3a064e4a6b3ea975e549f6e741c0
-x
-Hsrc/test/java/com/petstore/pet/negativescenario/PetApiNegativeTests.java,c\6\c6a13e935f7f0d16ff668b3f837ebd64b6176a54
 u
 Esrc/test/java/com/petstore/pet/negativetests/PetApiNegativeTests.java,f\7\f77cb61dca46a73a08c14a769589df4154ee1820
 u
