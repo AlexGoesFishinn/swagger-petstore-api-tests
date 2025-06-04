@@ -8,8 +8,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static com.petstore.TestUtils.*;
 
-public class PetApiNegativeTests {
+class PetApiNegativeTests {
 
     private static PetApiClient client;
 
@@ -39,6 +40,20 @@ public class PetApiNegativeTests {
         long id = pet.getId();
         client.deletePet(id);
         Response response = client.updatePet(pet);
+        assertEquals(404, response.getStatusCode());
+    }
+
+    @Test
+    void deleteInvalidId(){
+        Response response = client.deletePet(-1000L);
+        assertEquals(400, response.getStatusCode());
+    }
+    @Test
+    void deletePetNotFound(){
+        Pet pet = generateRandomPet();
+        client.addPet(pet);
+        client.deletePet(pet.getId());
+        Response response = client.deletePet(pet.getId());
         assertEquals(404, response.getStatusCode());
     }
 }

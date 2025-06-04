@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static io.restassured.module.jsv.JsonSchemaValidator.*;
 
 
-public class PetApiPositiveTests {
+class PetApiPositiveTests {
 
     private static PetApiClient client;
 
@@ -27,15 +27,18 @@ public class PetApiPositiveTests {
     @Test
     void createAndGetByIdTest() {
         Pet pet = generateRandomPet();
-        client.addPet(pet);
-        Response response = client.getPetByID(pet.getId());
+        Response addResponse = client.addPet(pet);
 
-        assertEquals(200, response.getStatusCode());
-        assertNotNull(response.body());
+        assertEquals(200, addResponse.getStatusCode());
 
-        if (response.body() != null) {
-            Pet petReceived = response.getBody().as(Pet.class);
-            response.then().assertThat().body(matchesJsonSchemaInClasspath("pet_json_schema.json"));
+        Response getResponse = client.getPetByID(pet.getId());
+
+        assertEquals(200, getResponse.getStatusCode());
+        assertNotNull(getResponse.body());
+
+        if (getResponse.body() != null) {
+            Pet petReceived = getResponse.getBody().as(Pet.class);
+            getResponse.then().assertThat().body(matchesJsonSchemaInClasspath("pet_json_schema.json"));
             assertEquals(pet, petReceived);
         }
     }

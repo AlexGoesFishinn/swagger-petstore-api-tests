@@ -8,9 +8,9 @@ import io.restassured.response.Response;
 import static io.restassured.RestAssured.given;
 
 public class PetApiClient extends ApiClient {
-    private final static String PET_ENDPOINT = "/pet";
-    private final static String PET_ENDPOINT_ID = "/pet/{id}";
-    private final static String PET_ENDPOINT_STATUS = "/pet/findByStatus";
+    private static final String PET_ENDPOINT = "/pet";
+    private static final String PET_ENDPOINT_ID = "/pet/{id}";
+    private static final String PET_ENDPOINT_STATUS = "/pet/findByStatus";
 
 
     public Response getPetByID(long id) {

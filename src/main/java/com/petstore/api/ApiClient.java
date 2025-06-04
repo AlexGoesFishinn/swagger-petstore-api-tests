@@ -3,9 +3,9 @@ package com.petstore.api;
 import io.restassured.RestAssured;
 
 public class ApiClient {
-    public final static String BASE_URL = "https://petstore.swagger.io/v2";
+    public static final String BASE_URL = "https://petstore.swagger.io/v2";
 
-    public ApiClient() {
+    static {
         RestAssured.baseURI = BASE_URL;
     }
 

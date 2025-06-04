@@ -11,3 +11,5 @@ k
 ;src/test/java/com/petstore/jsonschemes/pet_json_schema.json,9\b\9ba74b497d2e8b0b73284b98e2a3733685d87ea4
 p
 @src/test/java/com/petstore/pet/negative/PetApiNegativeTests.java,1\6\16b52c0bb8be6f2ab5eb733133073500e46048da
+]
+-src/main/java/com/petstore/api/ApiClient.java,e\b\ebc32aee7c54fd250af1039788fd86d55643fa7b
