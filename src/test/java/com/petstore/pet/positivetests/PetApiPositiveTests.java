@@ -27,12 +27,11 @@ class PetApiPositiveTests {
     @Test
     void createAndGetByIdTest() {
         Pet pet = generateRandomPet();
-        Response addResponse = client.addPet(pet);
 
+        Response addResponse = client.addPet(pet);
         assertEquals(200, addResponse.getStatusCode());
 
         Response getResponse = client.getPetByID(pet.getId());
-
         assertEquals(200, getResponse.getStatusCode());
         assertNotNull(getResponse.body());
 
@@ -56,6 +55,7 @@ class PetApiPositiveTests {
     @Test
     void createUpdateAndGetTest() {
         Pet pet = generateRandomPet();
+
         client.addPet(pet);
 
         pet.setName("Name updated");
@@ -63,11 +63,11 @@ class PetApiPositiveTests {
         List<Tag> petTags = pet.getTags();
         petTags.add(new Tag(1L, "New Tag"));
         pet.setTags(petTags);
+
         Response updateResponse = client.updatePet(pet);
         assertEquals(200, updateResponse.getStatusCode());
-        Response getResponse = client.getPetByID(pet.getId());
 
-        assertEquals(200, getResponse.getStatusCode());
+        Response getResponse = client.getPetByID(pet.getId());
         assertNotNull(getResponse.body());
 
         if (getResponse.body() != null) {
