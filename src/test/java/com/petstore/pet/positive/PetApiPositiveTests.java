@@ -84,7 +84,6 @@ class PetApiPositiveTests {
         assertEquals(200, response.getStatusCode());
         assertNotNull(response.getBody());
         if(response.getBody() != null){
-            System.out.println(response.getBody().jsonPath().toString());
             List<Pet> pets = response.getBody().jsonPath().getList(".", Pet.class);
             assertTrue(pets.contains(pet));
         }
