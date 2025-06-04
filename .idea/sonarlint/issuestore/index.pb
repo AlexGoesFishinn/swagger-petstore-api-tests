@@ -17,3 +17,5 @@ u
 Esrc/test/java/com/petstore/pet/negativetests/PetApiNegativeTests.java,f\7\f77cb61dca46a73a08c14a769589df4154ee1820
 u
 Esrc/test/java/com/petstore/pet/positivetests/PetApiPositiveTests.java,2\0\20adb1b1f4b497c405a4406505ae6b0c77e1c012
+Y
+)src/test/java/com/petstore/TestUtils.java,b\9\b9e3a916aeb09a2999639ae38df0b95fea98a388
