@@ -3,11 +3,11 @@ package com.petstore.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import java.util.List;
 
 @JsonDeserialize
 public class Pet {
-
 
     @JsonProperty("id")
     private long id;
@@ -22,7 +22,9 @@ public class Pet {
     @JsonProperty("status")
     private Status status;
 
-    public Pet(){}
+    public Pet() {
+    }
+
     public Pet(long id, Category category, String name, List<String> photoUrls, List<Tag> tags, Status status) {
         this.id = id;
         this.category = category;
@@ -55,6 +57,7 @@ public class Pet {
     public void setStatus(Status status) {
         this.status = status;
     }
+
     public long getId() {
         return id;
     }
@@ -81,9 +84,11 @@ public class Pet {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj == null) return false;
-        if(obj == this) return true;
-        if(!(obj instanceof Pet)){return false;}
+        if (obj == null) return false;
+        if (obj == this) return true;
+        if (!(obj instanceof Pet)) {
+            return false;
+        }
         Pet pet = (Pet) obj;
 
         return this.id == pet.getId() &&

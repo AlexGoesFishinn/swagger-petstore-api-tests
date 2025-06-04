@@ -7,13 +7,14 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @JsonDeserialize
 public class Category {
 
-
     @JsonProperty("id")
     private long id;
     @JsonProperty("name")
     private String name;
 
-    public Category(){}
+    public Category() {
+    }
+
     public Category(long id, String name) {
         this.id = id;
         this.name = name;

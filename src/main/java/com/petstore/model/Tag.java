@@ -12,7 +12,9 @@ public class Tag {
     @JsonProperty("name")
     private String name;
 
-    public Tag(){}
+    public Tag() {
+    }
+
     public Tag(long id, String name) {
         this.id = id;
         this.name = name;

@@ -11,7 +11,8 @@ import java.util.Random;
 
 public class TestUtils {
     private final static Random random = new Random();
-    public static Pet generateRandomPet(){
+
+    public static Pet generateRandomPet() {
         long petId = random.nextLong(0, Long.MAX_VALUE);
         long categoryId = random.nextLong(0, Long.MAX_VALUE);
         long tagId = random.nextLong(0, Long.MAX_VALUE);
@@ -24,12 +25,12 @@ public class TestUtils {
         List<Tag> tags = new ArrayList<>();
         tags.add(new Tag(tagId, tagName));
         Status status = generateRandomStatus();
-        return new Pet(petId, category,petName,photoUrls, tags, status);
+        return new Pet(petId, category, petName, photoUrls, tags, status);
 
 
     }
 
-    private static Status generateRandomStatus(){
+    private static Status generateRandomStatus() {
         Status[] statuses = Status.values();
         return statuses[random.nextInt(statuses.length)];
     }
