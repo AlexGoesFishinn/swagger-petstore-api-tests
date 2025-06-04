@@ -1,16 +1,18 @@
 package com.petstore.pet.positive;
 
-import com.petstore.TestUtils;
 import com.petstore.api.PetApiClient;
 import com.petstore.model.Category;
 import com.petstore.model.Pet;
+import com.petstore.model.Status;
 import com.petstore.model.Tag;
 import io.restassured.response.Response;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
+
+import static com.petstore.TestUtils.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static io.restassured.module.jsv.JsonSchemaValidator.*;
 
 
 public class PetApiPositiveTests {
@@ -24,23 +26,23 @@ public class PetApiPositiveTests {
 
     @Test
     void createAndGetByIdTest() {
-        Pet pet = TestUtils.generateRandomPet();
+        Pet pet = generateRandomPet();
         client.addPet(pet);
         Response response = client.getPetByID(pet.getId());
 
-        Assertions.assertEquals(200, response.getStatusCode());
-        Assertions.assertNotNull(response.body());
+        assertEquals(200, response.getStatusCode());
+        assertNotNull(response.body());
 
         if (response.body() != null) {
             Pet petReceived = response.getBody().as(Pet.class);
-
-            Assertions.assertEquals(pet, petReceived);
+            response.then().assertThat().body(matchesJsonSchemaInClasspath("pet_json_schema.json"));
+            assertEquals(pet, petReceived);
         }
     }
 
     @Test
     void createUpdateAndGetTest() {
-        Pet pet = TestUtils.generateRandomPet();
+        Pet pet = generateRandomPet();
         client.addPet(pet);
 
         pet.setName("Name updated");
@@ -51,23 +53,37 @@ public class PetApiPositiveTests {
 
         Response response = client.getPetByID(pet.getId());
 
-        Assertions.assertEquals(200, response.getStatusCode());
-        Assertions.assertNotNull(response.body());
+        assertEquals(200, response.getStatusCode());
+        assertNotNull(response.body());
 
         if (response.body() != null) {
             Pet petReceived = response.getBody().as(Pet.class);
-
-            Assertions.assertEquals(pet, petReceived);
+            assertEquals(pet, petReceived);
         }
     }
 
     @Test
     void createAndDeleteTest() {
-        Pet pet = TestUtils.generateRandomPet();
+        Pet pet = generateRandomPet();
         long id = pet.getId();
         client.addPet(pet);
         client.deletePet(id);
         Response response = client.getPetByID(id);
-        Assertions.assertEquals(404, response.getStatusCode());
+        assertEquals(404, response.getStatusCode());
+    }
+
+    @Test
+    void createAndGetByStatus(){
+        Pet pet = generateRandomPet();
+        Status status = pet.getStatus();
+        client.addPet(pet);
+        Response response = client.getPetListByStatus(status);
+        assertEquals(200, response.getStatusCode());
+        assertNotNull(response.getBody());
+        if(response.getBody() != null){
+            System.out.println(response.getBody().jsonPath().toString());
+            List<Pet> pets = response.getBody().jsonPath().getList(".", Pet.class);
+            assertTrue(pets.contains(pet));
+        }
     }
 }

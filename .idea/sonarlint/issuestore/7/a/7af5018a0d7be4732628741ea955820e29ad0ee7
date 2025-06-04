@@ -1,0 +1,9 @@
+
+]
+java:S1700
+"Rename field "status"(Çø¿›ùÿÿÿÿ8‘éÚáó2J$9f2f170d-38a7-49d4-8860-f2d44a9ae395
+¡	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(÷Äàıÿÿÿÿ8–éÚáó2J$d2392275-7f69-4ddd-9929-728f7c3917bc
+›	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(©ºÿn8–éÚáó2J$f9fd2365-6184-4b13-98a2-99e74c3aca86
+¡	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¶ÆÓÜıÿÿÿÿ8–éÚáó2J$0bcbae3c-7946-41a4-a4bb-475fb94b9f16
+u
+java:S1128"-Remove this unused import 'java.util.Random'.(èøÉ›ùÿÿÿÿ8£éÚáó2J$b1bd9622-b381-478e-beb6-357cf1363da8
