@@ -98,5 +98,9 @@ public class Pet {
                 this.tags.equals(pet.tags) &&
                 this.status.equals(pet.status);
     }
+    @Override
+    public int hashCode() {
+        return name.hashCode() * 31 + (int) id * 47;
+    }
 }
 

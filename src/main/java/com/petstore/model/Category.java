@@ -51,4 +51,9 @@ public class Category {
         return this.id == category.getId() &&
                 this.name.equals(category.getName());
     }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode() * 31 + (int) id * 47;
+    }
 }

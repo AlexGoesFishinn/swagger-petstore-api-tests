@@ -13,3 +13,9 @@ p
 @src/test/java/com/petstore/pet/negative/PetApiNegativeTests.java,1\6\16b52c0bb8be6f2ab5eb733133073500e46048da
 ]
 -src/main/java/com/petstore/api/ApiClient.java,e\b\ebc32aee7c54fd250af1039788fd86d55643fa7b
+^
+.src/main/java/com/petstore/model/Category.java,2\3\23f2f3cfd590de843a6611af698e72374c6edf83
+Y
+)src/main/java/com/petstore/model/Pet.java,c\c\ccf4715b9b99808b6882cef9d9dc5daaf2eaeb69
+Y
+)src/main/java/com/petstore/model/Tag.java,5\1\5133ab4d4bdc3a064e4a6b3ea975e549f6e741c0

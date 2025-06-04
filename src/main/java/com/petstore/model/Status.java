@@ -3,13 +3,13 @@ package com.petstore.model;
 import java.util.Random;
 
 public enum Status {
-    available("available"),
-    pending("pending"),
-    sold("sold");
+    AVAILABLE("available"),
+    PENDING("pending"),
+    SOLD("sold");
 
-    public final String status;
+    public final String string;
     private Status(String status){
-        this.status = status;
+        this.string = status;
     }
 
 

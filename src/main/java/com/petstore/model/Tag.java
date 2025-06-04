@@ -51,5 +51,10 @@ public class Tag {
         return this.id == tag.getId() &&
                 this.name.equals(tag.getName());
     }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode() * 31 + (int) id * 47;
+    }
 }
 
