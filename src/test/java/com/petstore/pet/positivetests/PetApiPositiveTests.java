@@ -63,14 +63,15 @@ class PetApiPositiveTests {
         List<Tag> petTags = pet.getTags();
         petTags.add(new Tag(1L, "New Tag"));
         pet.setTags(petTags);
+        Response updateResponse = client.updatePet(pet);
+        assertEquals(200, updateResponse.getStatusCode());
+        Response getResponse = client.getPetByID(pet.getId());
 
-        Response response = client.getPetByID(pet.getId());
+        assertEquals(200, getResponse.getStatusCode());
+        assertNotNull(getResponse.body());
 
-        assertEquals(200, response.getStatusCode());
-        assertNotNull(response.body());
-
-        if (response.body() != null) {
-            Pet petReceived = response.getBody().as(Pet.class);
+        if (getResponse.body() != null) {
+            Pet petReceived = getResponse.getBody().as(Pet.class);
             assertEquals(pet, petReceived);
         }
     }

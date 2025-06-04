@@ -102,5 +102,10 @@ public class Pet {
     public int hashCode() {
         return name.hashCode() * 31 + (int) id * 47;
     }
+
+    @Override
+    public String toString() {
+        return name + " " + id + " " + status;
+    }
 }
 

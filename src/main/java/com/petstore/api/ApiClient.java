@@ -8,5 +8,6 @@ abstract class ApiClient {
     static {
         RestAssured.baseURI = BASE_URL;
     }
+    ApiClient(){}
 
 }
