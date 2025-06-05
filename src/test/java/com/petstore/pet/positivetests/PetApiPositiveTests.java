@@ -6,6 +6,7 @@ import com.petstore.model.Pet;
 import com.petstore.model.Status;
 import com.petstore.model.Tag;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.util.List;
@@ -22,6 +23,10 @@ class PetApiPositiveTests {
     @BeforeAll
     static void setUp() {
         client = new PetApiClient();
+    }
+    @AfterAll
+    static void cleanUp(){
+        client = null;
     }
 
     @Test

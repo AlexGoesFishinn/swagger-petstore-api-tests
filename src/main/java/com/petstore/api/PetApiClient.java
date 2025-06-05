@@ -25,7 +25,7 @@ public class PetApiClient extends ApiClient {
     public Response getPetListByStatus(Status status){
         return given()
                 .when()
-                .queryParam("status", status)
+                .queryParam("status", status.toString())
                 .get(PET_STATUS_ENDPOINT)
                 .then()
                 .extract()

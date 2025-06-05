@@ -1,12 +1,14 @@
 package com.petstore.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.List;
 
 @JsonDeserialize
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Pet {
 
     @JsonProperty("id")

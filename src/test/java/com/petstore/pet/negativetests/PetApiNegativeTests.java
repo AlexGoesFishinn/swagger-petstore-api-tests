@@ -3,6 +3,7 @@ package com.petstore.pet.negativetests;
 import com.petstore.api.PetApiClient;
 import com.petstore.model.Pet;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +17,10 @@ class PetApiNegativeTests {
     @BeforeAll
     static void setUp() {
         client = new PetApiClient();
+    }
+    @AfterAll
+    static void cleanUp(){
+        client = null;
     }
 
     @Test
